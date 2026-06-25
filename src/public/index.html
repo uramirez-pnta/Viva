@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Pentafon Genesys Cloud | Viva</title>
+<link rel="icon" type="image/png" href="images/Pentafon-head.png">
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <h1>VIVA</h1>
+</header>
+
+<!-- MENU LATERAL -->
+<nav id="navbar">
+  <ul>
+    <li id="btnHome" onclick="showHome()">
+      <img class="icon-img" src="icons/home.png">
+      <span class="text">Home</span>
+    </li>
+    <li id="btnBYOC" onclick="showBYOC()">
+      <img class="icon-img" src="icons/byoc.png">
+      <span class="text">Minutos BYOC</span>
+    </li>
+    <li id="btnLicenses" onclick="showLicenses()">
+      <img class="icon-img" src="icons/licenses.png">
+      <span class="text">Licencias</span>
+    </li>
+    <li id="btnIVR" onclick="showIVR()">
+      <img class="icon-img" src="icons/ivr.png">
+      <span class="text">IVR</span>
+    </li>
+
+  </ul>
+</nav>
+
+<main class="dashboard">
+
+  <!-- HOME -->
+  <section id="home">
+    <div class="home-logos">
+      <img src="images/Pentafon.png">
+      <img src="images/viva-aero.png">
+    </div>
+  </section>
+
+  <!-- BYOC -->
+  <section id="byoc">
+
+    <div class="chart-header">
+      <h2 class="chart-title">Evolución diaria de consumo BYOC</h2>
+    </div>
+    <div class="byoc-summary">
+
+      <div class="summary-card">
+        <span class="summary-title">Minutos acumulados</span>
+        <span class="summary-value skeleton-box" id="minutosAcumulados"></span>
+      </div>
+
+      <div class="summary-card">
+        <span class="summary-title">Bolsa BYOC</span>
+        <span class="summary-value skeleton-box" id="bolsaByoc"></span>
+      </div>
+
+      <div class="summary-card">
+        <span class="summary-title">Uso de Bolsa</span>
+        <span class="summary-value skeleton-box" id="diferenciaMinutos"></span>
+      </div>
+
+    </div>
+
+    <div class="chart-container">
+
+      <!-- Selector de periodos -->
+      <div class="periodo-selector">
+        <label for="selectPeriodo">Periodo activo</label>
+        <div class="select-wrapper">
+          <select id="selectPeriodo"></select>
+        </div>
+      </div>
+
+      <span id="chartLoader" class="loader"></span>
+
+      <div id="byocChart"></div>
+    </div>
+
+  </section>
+
+  <!-- LICENCIAS -->
+  <section id="licenses">
+    <div class="chart-header">
+      <h2 class="chart-title">Evolución diaria de Licencias</h2>
+    </div>
+
+    <div class="licenses-summary">
+      <div class="summary-card">
+        <div class="summary-title">Licencias Pico</div>
+        <div id="licenciasPicoCard" class="summary-value skeleton-box"></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">Licencias Contratadas</div>
+        <div id="licenciasContratadas" class="summary-value skeleton-box"></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">Uso</div>
+        <div id="usoLicencias" class="summary-value skeleton-box"></div>
+      </div>
+    </div>
+
+    <div class="chart-container">
+      <!-- Selector de periodos -->
+      <div class="periodo-selector">
+        <label for="selectPeriodoLicenses">Periodo activo</label>
+        <div class="select-wrapper">
+          <select id="selectPeriodoLicenses"></select>
+        </div>
+      </div>
+
+      <span id="licensesLoader" class="loader"></span>
+
+      <div id="licensesChart"></div>
+    </div>
+
+    </div>
+
+  </section>
+  <!-- IVR -->
+  <section id="ivr" style="display:none;">
+
+    <div class="chart-header">
+      <h2 class="chart-title">Evolución diaria de IVR</h2>
+    </div>
+
+    <div class="ivr-summary">
+      <div class="summary-card">
+        <span class="summary-title">Total Bolsa</span>
+        <span class="summary-value skeleton-box" id="ivr-total-bolsa"></span>
+      </div>
+      <div class="summary-card">
+        <span class="summary-title">Minutos Acumulados</span>
+        <span class="summary-value skeleton-box" id="ivr-acumulado"></span>
+      </div>
+      <div class="summary-card">
+        <span class="summary-title">Porcentaje</span>
+        <span class="summary-value skeleton-box" id="ivr-porcentaje"></span>
+      </div>
+    </div>
+
+    <div class="chart-container">
+      <!-- Selector de periodos -->
+      <div class="periodo-selector">
+        <label for="selectPeriodo">Periodo activo</label>
+        <div class="select-wrapper">
+          <select id="selectPeriodoIVR"></select>
+        </div>
+      </div>
+
+      <span id="ivrLoader" class="loader"></span>
+
+      <div id="ivrChartContainer"></div>
+    </div>
+
+  </section>
+
+  <script src="dashboard.js"></script>
+
+</main>
+</body>
+</html>
